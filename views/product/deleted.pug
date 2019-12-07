@@ -1,0 +1,13 @@
+extends ../layout.pug
+
+block content
+  form.form.center-form(method='post', enctype='multipart/form-data')
+    h2(align='center') Esta seguro que desea eliminar el siguiente producto?
+    .cards2(align='center')
+      h4=product.name 
+      img(src=`${product.image}`)
+      h3='precio'
+      h4=product.price
+      br
+      input.form-btn.btn(type='submit', value='Eliminar')
+      a.btn.btn-small.btn-danger(href=`/`)= 'Cancelar'

@@ -1,0 +1,40 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    title The Shop
+    link(rel='icon', type='image/x-icon', href='/recursos/images/favicon.ico')
+    link(rel='stylesheet', type='text/css', href='/recursos/styles/site.css')
+  body
+    header
+      nav.nav
+        ul
+          li
+            a(href='/') Inicio
+          li
+        
+          li
+            
+          li.delimeter
+          if user
+            li.align-right
+              form#logout-form(method="post" action="/user/logout")
+                a(href="javascript:document.getElementById('logout-form').submit()") Salir
+            li.align-right
+              span= user.username
+          else
+            li.align-right  
+              a(href='/user/register') Registrar
+            li.align-right  
+              a(href='/user/login') Iniciar sesion
+
+    if error
+      h2.error-msg= error
+    else if success
+      h2.success-msg= success
+      
+    main
+      block content
+    footer

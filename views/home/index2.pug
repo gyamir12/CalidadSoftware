@@ -1,0 +1,20 @@
+extends ../layout2.pug
+
+block content
+  br
+  h1.head-title Bienvenido Shopping Online XD
+  form#search-form
+    input(type='text', name='query', placeholder='Buscar...')
+    input(type='submit', value='Search')
+  .cards
+    each product in products
+      .product-card
+        h2(align='center')=product.name 
+        img.product-img(src=`${product.image}` align='center')
+        h5=product.price
+        p=product.description
+
+        a.btn.btn-small.btn-success(href=`/product/buy/${product._id}`)= 'Buy'
+        //a.btn.btn-small.btn-warning(href=`/product/edit/${product._id}`)= 'Editar'
+        //a.btn.btn-small.btn-danger(href=`/product/delete/${product._id}`)= 'Borrar'
+        //a.btn.btn-small.btn-primary(href=`/category/${product.category.name}/products`)=`More ${product.category.name}`

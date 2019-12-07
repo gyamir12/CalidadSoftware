@@ -1,0 +1,21 @@
+extends ../layout2.pug
+
+block content 
+  form.form.center-form(method='post')
+    h2(aling='center') Datos para la compra
+    .form-group
+      label(for='username') Nombre
+      input#username.input-field(name='username', type='text', required)
+    .form-group
+      label(for='description') Direccion
+      textarea#description.input-field(name='description', type='text', required)
+    .form-group
+      label(for='card') Numero de tarjeta
+      input#password.input-field(name='card', type='text', required)
+    .form-group
+      label(for='producto') cantidad
+      input#confirmedPassword.input-field(name='producto', type='text', required)
+    .form-group
+      a.btn.btn-small.btn-danger(href=`/product/buy/${product._id}`)='Regresar'
+      input.btn-small.btn.btn-success(type='submit', value='Comprar', aling='center')
+      
